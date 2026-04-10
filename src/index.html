@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bit Forge Strength | AI-Powered Training</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-dark: #111111;
+        --bg-panel: #1e1e1e;
+        --primary-orange: #ff5a00;
+        --primary-hover: #e04f00;
+        --text-main: #f4f4f4;
+        --text-muted: #8e9399;
+        --border-color: #333333;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      h3,
+      .nav-brand {
+        font-family: "Oswald", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      a {
+        color: var(--text-main);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      a:hover {
+        color: var(--primary-orange);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-block;
+        background-color: var(--primary-orange);
+        color: #fff;
+        font-family: "Oswald", sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        transition:
+          background-color 0.2s,
+          transform 0.1s;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-hover);
+        color: #fff;
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--text-main);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--text-main);
+        color: var(--bg-dark);
+      }
+
+      /* Navigation */
+      header {
+        background-color: rgba(17, 17, 17, 0.95);
+        border-bottom: 1px solid var(--border-color);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(5px);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .nav-brand img {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+      }
+
+      .nav-links {
+        display: none; /* Hidden on mobile */
+      }
+
+      /* Hero Section */
+      .hero {
+        /* The dark overlay blended with the background image */
+        background:
+          linear-gradient(rgba(17, 17, 17, 0.6), rgba(17, 17, 17, 0.95)),
+          url("cover.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        /* Layout properties */
+        padding: 8rem 1rem 4rem;
+        text-align: center;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-eyebrow {
+        color: var(--primary-orange);
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero p {
+        color: var(--text-muted);
+        font-size: 1.125rem;
+        max-width: 600px;
+        margin: 0 auto 2.5rem;
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      /* Section Layouts */
+      section {
+        padding: 5rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Grid for Features */
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .feature-card {
+        background-color: var(--bg-panel);
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary-orange);
+      }
+
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      /* Process Section */
+      .process-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background-color: var(--bg-panel);
+        padding: 2rem;
+        border-left: 4px solid var(--primary-orange);
+      }
+
+      .step-number {
+        font-family: "Oswald", sans-serif;
+        font-size: 3rem;
+        color: var(--primary-orange);
+        line-height: 1;
+        opacity: 0.5;
+      }
+
+      /* Vanguard Pricing */
+      .pricing-box {
+        background: linear-gradient(145deg, #1e1e1e, #111111);
+        border: 2px solid var(--primary-orange);
+        border-radius: 8px;
+        padding: 3rem 2rem;
+        text-align: center;
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-price {
+        font-family: "Oswald", sans-serif;
+        font-size: 4rem;
+        margin: 1.5rem 0;
+        line-height: 1;
+      }
+
+      .pricing-price span {
+        font-size: 1.5rem;
+        color: var(--text-muted);
+      }
+
+      .pricing-features {
+        list-style: none;
+        margin: 2rem 0;
+        text-align: left;
+      }
+
+      .pricing-features li {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text-muted);
+      }
+
+      .pricing-features li::before {
+        content: "✓";
+        color: var(--primary-orange);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #0a0a0a;
+        border-top: 1px solid var(--border-color);
+        padding: 3rem 1rem;
+        text-align: center;
+        color: var(--text-muted);
+        margin-top: 3rem;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+        font-size: 0.875rem;
+      }
+
+      /* --- Desktop Overrides (Mobile First Approach) --- */
+      @media (min-width: 768px) {
+        .nav-links {
+          display: flex;
+          gap: 2rem;
+          font-family: "Oswald", sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .hero h1 {
+          font-size: 5rem;
+        }
+
+        .hero-buttons {
+          flex-direction: row;
+          max-width: auto;
+          justify-content: center;
+        }
+
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .process-steps {
+          flex-direction: row;
+        }
+
+        .step {
+          flex: 1;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .features-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <a href="#" class="nav-brand">
+          <img src="logo.png" alt="Bit Forge Strength Logo" />
+          Bit Forge Strength
+        </a>
+        <nav class="nav-links">
+          <a href="#arsenal">The Arsenal</a>
+          <a href="#process">The Process</a>
+          <a href="#vanguard">Vanguard Access</a>
+        </nav>
+        <a
+          href="#vanguard"
+          class="btn"
+          style="padding: 0.5rem 1rem; font-size: 0.875rem"
+          >Start Forging</a
+        >
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-eyebrow">AI-POWERED TRAINING. IRON-TESTED RESULTS.</div>
+      <h1>Forge Your Strength.<br />Powered by Logic.</h1>
+      <p>
+        The ultimate hybrid training platform. Build intelligent,
+        equipment-based blueprints on the web. Execute with raw precision on
+        mobile.
+      </p>
+      <div class="hero-buttons">
+        <a href="#vanguard" class="btn">Claim Early Access</a>
+        <a href="#arsenal" class="btn btn-outline">Explore Features</a>
+      </div>
+    </section>
+
+    <section id="arsenal">
+      <div class="section-header">
+        <h2>Heavy Industry Meets High Tech</h2>
+        <p>
+          Everything you need to plan, execute, and optimize your strength
+          journey—whether you train in a commercial gym or a garage setup.
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <h3>Algorithmic Programming</h3>
+          <p>
+            Intelligent, equipment-based workout generation tailored to your
+            exact loadout and fitness goals.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Tactical Execution</h3>
+          <p>
+            Seamless, intuitive workout tracking designed for the gym floor. Log
+            sets, reps, and track smart rest timers instantly.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>The Blueprint</h3>
+          <p>
+            Integrated calendar management. Schedule your sessions, manage your
+            splits, and track visual progress analytics.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏋️</div>
+          <h3>Loadout Manager</h3>
+          <p>
+            Create custom equipment profiles. Tell the AI what iron you have at
+            home or in the gym, and it builds the protocol.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⌚</div>
+          <h3>Wrist Command</h3>
+          <p>
+            Leave the phone in your locker. Autonomous workout execution,
+            HealthKit integration, and real-time syncing.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📡</div>
+          <h3>Off-Grid Capable</h3>
+          <p>
+            Basements and warehouse gyms have terrible cell service. Full
+            offline functionality ensures your workout never drops.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="section-header">
+        <h2>The Forge Workflow</h2>
+        <p>
+          A seamless ecosystem designed to bridge the gap between planning and
+          lifting.
+        </p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Blueprint on the Web</h3>
+          <p>
+            Use the web command center to set your goals, catalog your available
+            equipment, and let our AI hammer out a customized training protocol.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>Strike on Mobile</h3>
+          <p>
+            Take your scheduled blueprint to the gym. Follow guided
+            instructions, track your lifts in real-time, and manage your rest
+            intervals.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>Analyze the Output</h3>
+          <p>
+            Completed sessions instantly sync back to the web. Review your data,
+            track your tonnage, and optimize your next phase.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="vanguard">
+      <div class="section-header">
+        <h2>Join The Vanguard</h2>
+        <p>
+          Bit Forge Strength is currently in Early Access. We are building the
+          ultimate tool for serious athletes, and we want you on the ground
+          floor.
+        </p>
+      </div>
+      <div class="pricing-box">
+        <h3>Early Access</h3>
+        <div class="pricing-price">$0<span> / month</span></div>
+        <p style="color: var(--primary-orange); font-weight: 600">
+          Free during development
+        </p>
+        <ul class="pricing-features">
+          <li>Full access to all current & upcoming features</li>
+          <li>Unlimited AI generation</li>
+          <li>Cross-platform syncing</li>
+          <li>Mobile execution & offline mode</li>
+        </ul>
+        <a href="#" class="btn" style="width: 100%">Join the Beta 🚀</a>
+      </div>
+    </section>
+
+    <footer>
+      <div
+        class="nav-brand"
+        style="justify-content: center; margin-bottom: 1rem"
+      >
+        <img src="logo.png" alt="Bit Forge Logo" />
+      </div>
+      <p>"Forge your legacy. One bit, one rep at a time."</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Support</a>
+      </div>
+      <p style="font-size: 0.75rem">
+        &copy; 2026 Bit Forge Ventures, LLC. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
+```
