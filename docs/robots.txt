@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /.firebase/
+Disallow: /.git/
+Sitemap: https://bitforgestrength.app/sitemap.xml
