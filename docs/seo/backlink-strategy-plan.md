@@ -112,7 +112,7 @@ Target outcome:
 
 Use a natural mix:
 
-- 60-70% brand anchors (Bit Forge Strength, bitforgestrength.app)
+- 60-70% brand anchors (Bit Forge Strength, bitforgestrength.com)
 - 20-30% topical natural anchors (AI workout planning app, strength training platform)
 - <10% exact-match anchors
 

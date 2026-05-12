@@ -27,7 +27,7 @@ Happy to send an outline first.
 Best,
 [Name]
 [Title]
-https://bitforgestrength.app/
+https://bitforgestrength.com/
 
 ---
 
@@ -53,7 +53,7 @@ Either way, thanks for the useful content on [site name].
 
 Best,
 [Name]
-https://bitforgestrength.app/
+https://bitforgestrength.com/
 
 ---
 
@@ -81,7 +81,7 @@ If you are open, I can send 2-3 concrete ideas next.
 
 Best,
 [Name]
-https://bitforgestrength.app/
+https://bitforgestrength.com/
 
 ## Follow-Up (single message, 5-7 days later)
 
