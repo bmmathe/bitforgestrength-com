@@ -139,6 +139,16 @@
         color: var(--bg-dark);
       }
 
+      .btn.btn-nav-secondary {
+        background-color: #ffffff;
+        color: #b83800;
+      }
+
+      .btn.btn-nav-secondary:hover {
+        background-color: #f2f2f2;
+        color: var(--primary-orange);
+      }
+
       /* Navigation */
       header {
         background-color: rgba(17, 17, 17, 0.95);
@@ -175,6 +185,18 @@
 
       .nav-links {
         display: none; /* Hidden on mobile */
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+      }
+
+      .btn-nav-compact {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
       }
 
       /* Hero Section */
@@ -428,12 +450,17 @@
           <a href="#process">The Process</a>
           <a href="#vanguard">Vanguard Access</a>
         </nav>
-        <a
-          href="#vanguard"
-          class="btn"
-          style="padding: 0.5rem 1rem; font-size: 0.875rem"
-          >Start Forging</a
-        >
+        <div class="nav-actions">
+          <a
+            href="https://bitforgestrength.app"
+            class="btn btn-nav-compact"
+            rel="noopener noreferrer"
+            >Go to App</a
+          >
+          <a href="#vanguard" class="btn btn-nav-secondary btn-nav-compact"
+            >Start Forging</a
+          >
+        </div>
       </div>
     </header>
 
